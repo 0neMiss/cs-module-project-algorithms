@@ -3,9 +3,20 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # Your code here
 
-    pass
+    for i in arr:
+        #set var for current value
+        num = arr[i]
+        # remove current index
+        arr.pop(i)
+        if num in arr:
+            #if the number we are iterating on is in the array still add the number back
+            arr.append(num)
+        else:
+            #otherwise return the number
+            return num
+
+
 
 
 if __name__ == '__main__':

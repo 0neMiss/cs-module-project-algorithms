@@ -3,9 +3,32 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
 
-    pass
+    if len(arr) < 2:
+        return 'There needs to be more than one number in the array.'
+    #creates a list filled with the number of None values equal to the lenghtn of the array
+    arr_of_products =  [None] * len(arr)
+    print(f'array of products: {arr_of_products}')
+    #sets variable to change the current iteration value to 1 in order to remove it from the toal product
+    current_product = 1
+ #fills the arr_of_products with every value in the array, except for the one in the iteration, that is changed to 1
+    for i in range(len(arr)):
+        #sets current index to 1 so that it does not add anything to the total product
+        arr_of_products[i] = current_product
+        print(f'array of products[i] line 15: {arr_of_products[i]}')
+        # multiply and update current_product with each item in the array
+        current_product *= arr[i]
+        print(f'current_product line 17: {current_product}')
+        print(f'arr_of_products line 18: {arr_of_products}')
+    #reset current product to 1
+    current_product = 1
+    for i in range(len(arr) - 1, -1, -1):
+        #
+        arr_of_products[i] *= current_product
+        print(f'arr_of_products: {arr_of_products[i]}')
+        current_product *= arr[i]
+        print(f'arr_of_products: {current_product}')
+    return arr_of_products
 
 
 if __name__ == '__main__':
